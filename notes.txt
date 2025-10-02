@@ -1,8 +1,11 @@
 # Running Docker
-docker run -d --name prometheus -p 9090:9090 -v ~/data/prometheus-monitoring:/etc/prometheus/promethus.yml prom/prometheus
+docker run -d --name prometheus -p 9090:9090 -v ~/data/prometheus-monitoring/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+docker restart prometheus
 
 # Running Grafana
 docker run -d --name grafana -p 3000:3000 grafana/grafana (admin, admin)
 
 # Running Node Exporter
 docker run -d --name node-exporter -p 9100:9100 prom/node-exporter
+
+#docker system prune -a --volumes -f
